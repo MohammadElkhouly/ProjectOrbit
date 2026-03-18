@@ -1,8 +1,8 @@
-cmake_minimum_required(VERSION 3.28.3)
+cmake_minimum_required(VERSION 3.16)
 project(ProjectOrbit)
-
+set(CMAKE_CXX_STANDARD 17)
+add_subdirectory(Dependencies/GLFW)
+find_package(OpenGL REQUIRED)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/Bin)
-
-include_directories(${CMAKE_SOURCE_DIR}/Dependencies/GLFW)
-
 add_executable(ProjectOrbit Src/Main.cpp)
+target_link_libraries(ProjectOrbit PRIVATE glfw OpenGL::GL)
